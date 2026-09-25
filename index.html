@@ -1,338 +1,930 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Thiago Silva | Motorista Particular</title>
+<title>Thiago | Motorista Particular</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 20%, #26303a 0%, transparent 30%),
+        linear-gradient(135deg,#080a0d,#15191e 55%,#090b0e);
+    color:white;
+    min-height:100vh;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+    width:100%;
+    height:82px;
+    background:rgba(7,9,12,.96);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(14px);
+}
+
+.navbar{
+    width:min(1180px,92%);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo h2{
+    font-size:29px;
+    font-style:italic;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    display:block;
+    font-size:10px;
+    letter-spacing:3px;
+    font-weight:500;
+    margin-top:1px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:#eee;
+    text-decoration:none;
+    font-size:14px;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#d7ad57;
+}
+
+.whatsapp-top{
+    text-decoration:none;
+    background:#fff;
+    color:#111;
+    padding:11px 18px;
+    border-radius:8px;
+    font-weight:800;
+    font-size:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.menu-mobile{
+    display:none;
+    font-size:30px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    width:min(1180px,94%);
+    min-height:560px;
+    margin:35px auto 0;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:18px;
+    background:
+        radial-gradient(circle at 78% 30%,#34414d 0%,#1c232a 26%,transparent 50%),
+        linear-gradient(115deg,#090b0e 0%,#11161b 53%,#202932 100%);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    display:grid;
+    grid-template-columns:33% 32% 35%;
+}
+
+/* FOTO */
+
+.photo-side{
+    position:relative;
+    min-height:560px;
+    overflow:hidden;
+}
+
+.photo-side img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 25%;
+    display:block;
+}
+
+.photo-side::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(90deg,transparent 65%,#0d1116 100%),
+        linear-gradient(0deg,rgba(0,0,0,.35),transparent 45%);
+}
+
+/* CONTEÚDO */
+
+.hero-content{
+    position:relative;
+    z-index:4;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:45px 15px 90px 25px;
+}
+
+.hello{
+    color:#d6ae5a;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
+}
+
+.hero-content h1{
+    font-size:64px;
+    line-height:.92;
+    font-style:italic;
+    font-weight:900;
+    letter-spacing:-3px;
+}
+
+.subtitle{
+    font-size:19px;
+    letter-spacing:3px;
+    margin:7px 0 25px;
+    font-weight:500;
+}
+
+.hero-content h3{
+    font-size:24px;
+    max-width:330px;
+    line-height:1.05;
+    margin-bottom:12px;
+}
+
+.description{
+    color:#d4d7da;
+    line-height:1.5;
+    max-width:355px;
+    font-size:14px;
+}
+
+.cta{
+    width:270px;
+    margin-top:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#607b93,#34495d);
+    border:1px solid rgba(255,255,255,.6);
+    padding:12px 18px;
+    border-radius:9px;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.cta-icon{
+    font-size:28px;
+}
+
+.cta strong{
+    font-size:20px;
+}
+
+/* =========================
+   ÁREA DO CARRO
+========================= */
+
+.car-side{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    min-height:560px;
+}
+
+.car-side::before{
+    content:"";
+    position:absolute;
+    width:120%;
+    height:65%;
+    right:-20%;
+    bottom:55px;
+    background:
+        radial-gradient(ellipse at center,
+        rgba(175,122,59,.24),
+        rgba(28,34,40,.2) 45%,
+        transparent 70%);
+}
+
+.building{
+    position:absolute;
+    inset:0;
+    opacity:.65;
+    background:
+        linear-gradient(90deg,
+        transparent 0 15%,
+        rgba(255,255,255,.04) 15% 16%,
+        transparent 16% 35%,
+        rgba(255,255,255,.05) 35% 36%,
+        transparent 36%),
+        linear-gradient(0deg,
+        transparent 0 60%,
+        rgba(217,160,84,.12) 60% 61%,
+        transparent 61% 70%,
+        rgba(217,160,84,.15) 70% 71%,
+        transparent 71%);
+}
+
+.car-card{
+    position:relative;
+    z-index:3;
+    width:92%;
+    text-align:center;
+    transform:translateY(-10px);
+}
+
+.car-badge{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.35);
+    padding:8px 16px;
+    font-size:11px;
+    letter-spacing:3px;
+    margin-bottom:28px;
+    border-radius:4px;
+}
+
+.car-visual{
+    position:relative;
+    width:100%;
+    height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* carro estilizado em CSS */
+
+.car-shape{
+    position:relative;
+    width:330px;
+    height:115px;
+    background:linear-gradient(165deg,#7b8185,#30363a 45%,#111518 75%);
+    border-radius:45% 42% 18% 18% / 60% 60% 30% 30%;
+    box-shadow:
+        inset 0 4px 8px rgba(255,255,255,.3),
+        0 30px 35px rgba(0,0,0,.55);
+}
+
+.car-shape::before{
+    content:"";
+    position:absolute;
+    width:205px;
+    height:82px;
+    left:61px;
+    top:-55px;
+    background:linear-gradient(150deg,#8a9298 0%,#303940 25%,#121a21 80%);
+    clip-path:polygon(18% 100%,31% 14%,74% 9%,96% 100%);
+    border-radius:12px;
+}
+
+.car-shape::after{
+    content:"NIVUS";
+    position:absolute;
+    background:#080a0b;
+    border:1px solid #555;
+    color:#eee;
+    font-size:12px;
+    letter-spacing:2px;
+    padding:5px 22px;
+    left:50%;
+    bottom:15px;
+    transform:translateX(-50%);
+}
+
+.wheel{
+    position:absolute;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,#777 0 13%,#1c2023 14% 33%,#888 34% 39%,#121416 40%);
+    bottom:-29px;
+    z-index:5;
+}
+
+.wheel.left{
+    left:43px;
+}
+
+.wheel.right{
+    right:43px;
+}
+
+.headlight{
+    position:absolute;
+    width:58px;
+    height:11px;
+    top:29px;
+    background:#e8f5ff;
+    box-shadow:0 0 13px #d8efff;
+    z-index:4;
+}
+
+.headlight.left{
+    left:12px;
+    transform:rotate(6deg);
+}
+
+.headlight.right{
+    right:12px;
+    transform:rotate(-6deg);
+}
+
+.grill{
+    position:absolute;
+    width:120px;
+    height:28px;
+    left:50%;
+    top:48px;
+    transform:translateX(-50%);
+    border-top:3px solid #777;
+    border-bottom:3px solid #555;
+    background:repeating-linear-gradient(
+        0deg,
+        #111,
+        #111 4px,
+        #555 5px
+    );
+}
+
+.vw{
+    position:absolute;
+    left:50%;
+    top:44px;
+    transform:translateX(-50%);
+    width:31px;
+    height:31px;
+    border:2px solid #ddd;
+    background:#222;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:6;
+    font-size:9px;
+    font-weight:bold;
+}
+
+/* =========================
+   ESTATÍSTICAS
+========================= */
+
+.stats{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:88px;
+    z-index:10;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:rgba(7,9,11,.92);
+    border-top:1px solid rgba(255,255,255,.17);
+    backdrop-filter:blur(12px);
+}
+
+.stat{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    border-right:1px solid rgba(255,255,255,.14);
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat-icon{
+    font-size:33px;
+}
+
+.stat strong{
+    font-size:19px;
+    display:block;
+}
+
+.stat small{
+    display:block;
+    color:#ddd;
+    margin-top:2px;
+    font-size:12px;
+}
+
+.stars{
+    color:#e9b73e;
+    letter-spacing:1px;
+    font-size:12px;
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section{
+    width:min(1100px,90%);
+    margin:90px auto;
+}
+
+.section-label{
+    color:#d6ad58;
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.section h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.section p{
+    color:#c9cdd1;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:35px;
+}
+
+.card{
+    background:linear-gradient(145deg,#161b20,#0d1013);
+    border:1px solid rgba(255,255,255,.12);
+    padding:28px;
+    border-radius:14px;
+}
+
+.card-icon{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:9px;
+}
+
+.card p{
+    font-size:14px;
+}
+
+footer{
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    padding:30px 20px;
+    color:#8f969c;
+    font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    header{
+        height:70px;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top right, #3b3f45 0%, transparent 35%),
-        linear-gradient(145deg, #101214, #202328);
-      color: #ffffff;
-      min-height: 100vh;
+    nav,
+    .whatsapp-top{
+        display:none;
     }
 
-    .page {
-      width: 100%;
-      max-width: 480px;
-      margin: 0 auto;
-      min-height: 100vh;
-      padding: 38px 22px 32px;
+    .menu-mobile{
+        display:block;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
+    .logo h2{
+        font-size:24px;
     }
 
-    .brand-icon {
-      width: 46px;
-      height: 46px;
-      border: 1px solid #555b63;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,.05);
-      font-size: 21px;
-      font-weight: 700;
+    .hero{
+        width:94%;
+        margin-top:18px;
+        min-height:auto;
+        display:grid;
+        grid-template-columns:44% 56%;
+        border-radius:14px;
     }
 
-    .brand-text small {
-      display: block;
-      color: #9da2a9;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
+    .photo-side{
+        min-height:260px;
+        height:260px;
     }
 
-    .brand-text strong {
-      font-size: 16px;
-      letter-spacing: .4px;
+    .photo-side img{
+        object-position:55% 25%;
     }
 
-    .profile {
-      text-align: center;
+    .photo-side::after{
+        background:linear-gradient(90deg,transparent 55%,#101419 100%);
     }
 
-    .photo {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 22px;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(145deg, #858b92, #34383d);
-      box-shadow: 0 14px 35px rgba(0,0,0,.35);
+    .car-side{
+        min-height:260px;
+        height:260px;
+        grid-column:2;
+        grid-row:1;
     }
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      background: #282c31;
+    .car-card{
+        width:100%;
     }
 
-    h1 {
-      font-size: 32px;
-      line-height: 1.1;
-      margin-bottom: 7px;
+    .car-badge{
+        font-size:8px;
+        margin-bottom:12px;
+        padding:5px 8px;
     }
 
-    .occupation {
-      color: #c3c6ca;
-      font-size: 16px;
-      margin-bottom: 17px;
+    .car-visual{
+        height:150px;
+        transform:scale(.57);
     }
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid #555b63;
-      border-radius: 30px;
-      color: #d8dade;
-      background: rgba(255,255,255,.04);
-      font-size: 13px;
-      margin-bottom: 28px;
+    .hero-content{
+        grid-column:1 / 3;
+        padding:26px 22px 130px;
+        text-align:left;
     }
 
-    .intro {
-      color: #b8bcc1;
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 390px;
-      margin: 0 auto 27px;
+    .hello{
+        font-size:10px;
     }
 
-    .buttons {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 30px;
+    .hero-content h1{
+        font-size:49px;
     }
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      min-height: 57px;
-      border-radius: 15px;
-      text-decoration: none;
-      font-weight: 650;
-      font-size: 16px;
-      transition: .2s;
+    .subtitle{
+        font-size:13px;
+        letter-spacing:2px;
+        margin-bottom:20px;
     }
 
-    .btn:active {
-      transform: scale(.98);
+    .hero-content h3{
+        font-size:23px;
+        max-width:100%;
     }
 
-    .primary {
-      background: #f2f3f4;
-      color: #16181b;
+    .description{
+        font-size:13px;
     }
 
-    .secondary {
-      color: #fff;
-      border: 1px solid #51565d;
-      background: rgba(255,255,255,.06);
+    .cta{
+        width:100%;
+        margin-top:20px;
     }
 
-    .section-title {
-      color: #8e949b;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 13px;
+    .stats{
+        height:102px;
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 29px;
+    .stat{
+        flex-direction:column;
+        gap:2px;
+        text-align:center;
+        padding:8px 2px;
     }
 
-    .service {
-      min-height: 94px;
-      padding: 17px 14px;
-      border-radius: 15px;
-      border: 1px solid #3c4147;
-      background: rgba(255,255,255,.035);
+    .stat-icon{
+        font-size:22px;
     }
 
-    .service span {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 8px;
+    .stat strong{
+        font-size:13px;
     }
 
-    .service strong {
-      font-size: 13px;
-      line-height: 1.3;
-      color: #e2e4e6;
+    .stat small{
+        font-size:8px;
     }
 
-    .vehicle {
-      border-top: 1px solid #3c4147;
-      border-bottom: 1px solid #3c4147;
-      padding: 20px 3px;
-      margin-bottom: 28px;
+    .stars{
+        font-size:8px;
     }
 
-    .vehicle strong {
-      display: block;
-      font-size: 17px;
-      margin-bottom: 5px;
+    .section{
+        margin:60px auto;
     }
 
-    .vehicle p {
-      color: #aeb2b7;
-      font-size: 13px;
-      line-height: 1.5;
+    .section h2{
+        font-size:30px;
     }
 
-    footer {
-      text-align: center;
-      color: #70767d;
-      font-size: 11px;
-      line-height: 1.6;
-      padding-top: 4px;
+    .cards{
+        grid-template-columns:1fr;
     }
+}
 
-    @media (max-width: 360px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      .photo {
-        width: 135px;
-        height: 135px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <main class="page">
+<header>
+    <div class="navbar">
 
-    <div class="brand">
-      <div class="brand-icon">TS</div>
+        <div class="logo">
+            <h2>THIAGO</h2>
+            <span>MOTORISTA PARTICULAR</span>
+        </div>
 
-      <div class="brand-text">
-        <small>Motorista Particular</small>
-        <strong>Thiago Silva</strong>
-      </div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#veiculo">Veículo</a>
+            <a href="#avaliacoes">Avaliações</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <a class="whatsapp-top"
+           href="https://wa.me/5511964886455">
+           ☎ 96488-6455
+        </a>
+
+        <div class="menu-mobile">☰</div>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <div class="photo-side">
+        <img src="foto-thiago-site.jpg"
+             alt="Thiago - Motorista Particular">
     </div>
 
-    <section class="profile">
 
-      <div class="photo">
-        <img
-          src="thiago.jpg"
-          alt="Thiago Silva - Motorista Particular"
-          onerror="this.style.opacity='0';"
-        >
-      </div>
+    <div class="hero-content">
 
-      <h1>Thiago Silva</h1>
+        <div class="hello">◆ OLÁ, EU SOU O</div>
 
-      <p class="occupation">
+        <h1>THIAGO</h1>
+
+        <div class="subtitle">
+            MOTORISTA PARTICULAR
+        </div>
+
+        <h3>
+            Conforto e confiança<br>
+            em cada trajeto.
+        </h3>
+
+        <p class="description">
+            Transporte particular com segurança,
+            pontualidade e uma experiência premium
+            a bordo do Volkswagen Nivus Highline.
+        </p>
+
+        <a class="cta"
+           href="https://wa.me/5511964886455">
+
+            <span class="cta-icon">◉</span>
+
+            <span>
+                Fale no WhatsApp<br>
+                <strong>96488-6455</strong>
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <div class="car-side">
+
+        <div class="building"></div>
+
+        <div class="car-card">
+
+            <div class="car-badge">
+                NIVUS<br>HIGHLINE
+            </div>
+
+            <div class="car-visual">
+
+                <div class="car-shape">
+
+                    <div class="headlight left"></div>
+                    <div class="headlight right"></div>
+
+                    <div class="grill"></div>
+
+                    <div class="vw">VW</div>
+
+                    <div class="wheel left"></div>
+                    <div class="wheel right"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="stats" id="avaliacoes">
+
+        <div class="stat">
+            <div class="stat-icon">★</div>
+            <div>
+                <strong>5,0</strong>
+                <small>Avaliação</small>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">△</div>
+            <div>
+                <strong>+2.400</strong>
+                <small>Viagens realizadas</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⬟</div>
+            <div>
+                <strong>2+ anos</strong>
+                <small>de experiência</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">✪</div>
+            <div>
+                <strong>1.000</strong>
+                <small>viagens 5 estrelas</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="sobre">
+
+    <div class="section-label">
         Motorista Particular
-      </p>
+    </div>
 
-      <div class="badge">
-        São Paulo e região
-      </div>
+    <h2>
+        Sua viagem com mais conforto.
+    </h2>
 
-      <p class="intro">
-        Transporte particular com conforto, segurança e pontualidade.
-        Atendimento personalizado para seus deslocamentos, compromissos,
-        viagens e traslados.
-      </p>
+    <p>
+        Atendimento particular para quem busca
+        segurança, conforto, pontualidade e tranquilidade
+        durante seus deslocamentos.
+    </p>
 
-    </section>
+</section>
 
-    <div class="buttons">
 
-      <!-- Depois vamos colocar seu WhatsApp definitivo aqui -->
-      <a
-        class="btn primary"
-        href="#"
-      >
-        💬 Solicitar corrida pelo WhatsApp
-      </a>
+<section class="section" id="veiculo">
 
-      <!-- Depois podemos colocar seu telefone aqui -->
-      <a
-        class="btn secondary"
-        href="#"
-      >
-        ☎ Entrar em contato
-      </a>
+    <div class="section-label">
+        Veículo
+    </div>
+
+    <h2>
+        Volkswagen Nivus Highline
+    </h2>
+
+    <p>
+        Um veículo moderno, confortável e equipado
+        para proporcionar uma experiência agradável
+        durante todo o trajeto.
+    </p>
+
+</section>
+
+
+<section class="section" id="servicos">
+
+    <div class="section-label">
+        Serviços
+    </div>
+
+    <h2>
+        Transporte para diferentes momentos.
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">✈</div>
+            <h3>Aeroportos</h3>
+            <p>
+                Transporte com planejamento e
+                pontualidade para embarques e chegadas.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">◆</div>
+            <h3>Compromissos</h3>
+            <p>
+                Deslocamentos profissionais e pessoais
+                com conforto e tranquilidade.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">★</div>
+            <h3>Viagens</h3>
+            <p>
+                Atendimento para trajetos programados
+                e viagens particulares.
+            </p>
+        </div>
 
     </div>
 
-    <p class="section-title">Serviços</p>
+</section>
 
-    <section class="services">
 
-      <div class="service">
-        <span>✈️</span>
-        <strong>Aeroportos e traslados</strong>
-      </div>
+<section class="section" id="contato">
 
-      <div class="service">
-        <span>🏙️</span>
-        <strong>Deslocamentos em São Paulo</strong>
-      </div>
+    <div class="section-label">
+        Contato
+    </div>
 
-      <div class="service">
-        <span>🛣️</span>
-        <strong>Viagens e trajetos agendados</strong>
-      </div>
+    <h2>
+        Solicite seu trajeto.
+    </h2>
 
-      <div class="service">
-        <span>🕐</span>
-        <strong>Atendimento com hora marcada</strong>
-      </div>
+    <p>
+        Entre em contato diretamente pelo WhatsApp
+        para consultar disponibilidade e combinar
+        os detalhes da sua viagem.
+    </p>
 
-    </section>
+    <a class="cta"
+       href="https://wa.me/5511964886455">
+        <span class="cta-icon">◉</span>
+        <span>
+            Fale no WhatsApp<br>
+            <strong>96488-6455</strong>
+        </span>
+    </a>
 
-    <p class="section-title">Seu transporte</p>
+</section>
 
-    <section class="vehicle">
-      <strong>Conforto em cada trajeto.</strong>
+</main>
 
-      <p>
-        Veículo confortável, climatizado e preparado para oferecer
-        uma experiência agradável durante todo o percurso.
-      </p>
-    </section>
 
-    <footer>
-      THIAGO SILVA • MOTORISTA PARTICULAR<br>
-      SÃO PAULO • SP
-    </footer>
-
-  </main>
+<footer>
+    © 2026 Thiago • Motorista Particular
+</footer>
 
 </body>
 </html>
