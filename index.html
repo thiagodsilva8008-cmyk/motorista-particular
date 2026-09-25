@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thiago Silva | Motorista Particular</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, #3b3f45 0%, transparent 35%),
+        linear-gradient(145deg, #101214, #202328);
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 38px 22px 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      border: 1px solid #555b63;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.05);
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .brand-text small {
+      display: block;
+      color: #9da2a9;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .brand-text strong {
+      font-size: 16px;
+      letter-spacing: .4px;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .photo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(145deg, #858b92, #34383d);
+      box-shadow: 0 14px 35px rgba(0,0,0,.35);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background: #282c31;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 7px;
+    }
+
+    .occupation {
+      color: #c3c6ca;
+      font-size: 16px;
+      margin-bottom: 17px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #555b63;
+      border-radius: 30px;
+      color: #d8dade;
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      color: #b8bcc1;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 390px;
+      margin: 0 auto 27px;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 57px;
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 16px;
+      transition: .2s;
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .primary {
+      background: #f2f3f4;
+      color: #16181b;
+    }
+
+    .secondary {
+      color: #fff;
+      border: 1px solid #51565d;
+      background: rgba(255,255,255,.06);
+    }
+
+    .section-title {
+      color: #8e949b;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 29px;
+    }
+
+    .service {
+      min-height: 94px;
+      padding: 17px 14px;
+      border-radius: 15px;
+      border: 1px solid #3c4147;
+      background: rgba(255,255,255,.035);
+    }
+
+    .service span {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .service strong {
+      font-size: 13px;
+      line-height: 1.3;
+      color: #e2e4e6;
+    }
+
+    .vehicle {
+      border-top: 1px solid #3c4147;
+      border-bottom: 1px solid #3c4147;
+      padding: 20px 3px;
+      margin-bottom: 28px;
+    }
+
+    .vehicle strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .vehicle p {
+      color: #aeb2b7;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      color: #70767d;
+      font-size: 11px;
+      line-height: 1.6;
+      padding-top: 4px;
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .photo {
+        width: 135px;
+        height: 135px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="brand">
+      <div class="brand-icon">TS</div>
+
+      <div class="brand-text">
+        <small>Motorista Particular</small>
+        <strong>Thiago Silva</strong>
+      </div>
+    </div>
+
+    <section class="profile">
+
+      <div class="photo">
+        <img
+          src="thiago.jpg"
+          alt="Thiago Silva - Motorista Particular"
+          onerror="this.style.opacity='0';"
+        >
+      </div>
+
+      <h1>Thiago Silva</h1>
+
+      <p class="occupation">
+        Motorista Particular
+      </p>
+
+      <div class="badge">
+        São Paulo e região
+      </div>
+
+      <p class="intro">
+        Transporte particular com conforto, segurança e pontualidade.
+        Atendimento personalizado para seus deslocamentos, compromissos,
+        viagens e traslados.
+      </p>
+
+    </section>
+
+    <div class="buttons">
+
+      <!-- Depois vamos colocar seu WhatsApp definitivo aqui -->
+      <a
+        class="btn primary"
+        href="#"
+      >
+        💬 Solicitar corrida pelo WhatsApp
+      </a>
+
+      <!-- Depois podemos colocar seu telefone aqui -->
+      <a
+        class="btn secondary"
+        href="#"
+      >
+        ☎ Entrar em contato
+      </a>
+
+    </div>
+
+    <p class="section-title">Serviços</p>
+
+    <section class="services">
+
+      <div class="service">
+        <span>✈️</span>
+        <strong>Aeroportos e traslados</strong>
+      </div>
+
+      <div class="service">
+        <span>🏙️</span>
+        <strong>Deslocamentos em São Paulo</strong>
+      </div>
+
+      <div class="service">
+        <span>🛣️</span>
+        <strong>Viagens e trajetos agendados</strong>
+      </div>
+
+      <div class="service">
+        <span>🕐</span>
+        <strong>Atendimento com hora marcada</strong>
+      </div>
+
+    </section>
+
+    <p class="section-title">Seu transporte</p>
+
+    <section class="vehicle">
+      <strong>Conforto em cada trajeto.</strong>
+
+      <p>
+        Veículo confortável, climatizado e preparado para oferecer
+        uma experiência agradável durante todo o percurso.
+      </p>
+    </section>
+
+    <footer>
+      THIAGO SILVA • MOTORISTA PARTICULAR<br>
+      SÃO PAULO • SP
+    </footer>
+
+  </main>
+
+</body>
+</html>
